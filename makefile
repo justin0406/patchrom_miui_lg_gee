@@ -15,7 +15,7 @@ local-density := XHDPI
 
 PORT_PRODUCT := gee_justin
 
-local-miui-modified-apps := MiuiFramework SecurityCenter
+local-miui-modified-apps := miuisystem SecurityCenter
 
 local-phone-apps := Camera2 Bluetooth HTMLViewer KeyChain LatinIME PacProcessor \
         UserDictionaryProvider WAPPushManager

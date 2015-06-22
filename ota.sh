@@ -28,7 +28,7 @@ make fullota BUILD_NUMBER=$BUILD_NUMBER
 echo "******************"
 echo "*Copy Fullota.zip*"
 echo "******************"
-cp out/fullota.zip $BUILD_NUMBER-fullota.zip
+cp out/fullota.zip miui_gee_justinxu_$BUILD_NUMBER.zip
 echo "******************"
 echo "*      OTA       *"
 echo "******************"

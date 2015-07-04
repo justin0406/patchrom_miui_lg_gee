@@ -38,7 +38,6 @@ function applyPart () {
 
 if [ $1 = "MiuiFramework" ];then
 	applyPatch $1 $2
-	cp $1/gee.xml $2/assets/device_features/
 fi
 
 if [ $1 = "SecurityCenter" ];then
